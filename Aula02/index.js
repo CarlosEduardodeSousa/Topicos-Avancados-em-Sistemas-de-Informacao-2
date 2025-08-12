@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = requise ('cors');
 const mysql = require ('mysql');
-const Connection = require('mysql/lib/Connection');
 
 const app = express();
 const port = 3000;
