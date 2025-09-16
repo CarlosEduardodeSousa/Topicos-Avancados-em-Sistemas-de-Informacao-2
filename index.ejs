@@ -1,0 +1,78 @@
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    padding: 40px;
+    color: #333;
+  }
+
+  h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+  }
+
+  a[href="/novo"] {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  a[href="/novo"]:hover {
+    background-color: #27ae60;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  li {
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  li > span {
+    flex-grow: 1;
+  }
+
+  li a {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+</style>
+<h1>Clientes</h1>
+<a href="/novo">Novo Cliente</a>
+<ul>
+  <% clientes.forEach(c => { %>
+    <li>
+      <%= c.nome %> - <a href="/detalhes/<%= c.id %>">Detalhes</a> |
+      <a href="/editar/<%= c.id %>">Editar</a> |
+      <a href="/excluir/<%= c.id %>">Excluir</a>
+    </li>
+  <% }) %>
+</ul>
