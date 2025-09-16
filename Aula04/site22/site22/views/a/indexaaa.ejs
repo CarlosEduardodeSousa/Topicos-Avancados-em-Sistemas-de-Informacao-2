@@ -1,0 +1,11 @@
+<h1>Clientes</h1>
+<a href="/novo">Novo Cliente</a>
+<ul>
+  <% clientes.forEach(c => { %>
+    <li>
+      <%= c.nome %> - <a href="/detalhes/<%= c.id %>">Detalhes</a> |
+      <a href="/editar/<%= c.id %>">Editar</a> |
+      <a href="/excluir/<%= c.id %>">Excluir</a>
+    </li>
+  <% }) %>
+</ul>

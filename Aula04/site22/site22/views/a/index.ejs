@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clientes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    form {
+      margin-top: 30px;
+      max-width: 400px;
+      padding: 20px;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form p {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU -->
+  <nav>
+    <a href="/">Início</a>
+    <a href="/clientes">Listar Clientes</a>
+    <a href="/novo">Novo Cliente</a>
+  </nav>
+
+  <h1>Clientes</h1>
+
+  <ul>
+  <% if (clientes && clientes.length > 0) { %>
+    <% clientes.forEach(function(cliente) { %>  
+      <li>
+        <strong><%= cliente.nome %></strong> |
+        <a href="/detalhes/<%= c.id %>">Detalhes</a> |
+        <a href="/editar/<%= c.id %>">Editar</a> |
+        <a href="/excluir/<%= c.id %>">Excluir</a>
+      </li>
+    <% }); %>
+  <% } else { %>
+    <li>Nenhum cliente cadastrado.</li>
+  <% } %>
+</ul>
+
+<% cliente = c.nome || {}; %>
+  <form method="POST" action="<%= c.id ? '/editar/' + c.id : '/novo' %>">
+    <p>
+      <label for="nome">Nome:</label>
+      <input name="nome" id="nome" value="<%= c.nome || '' %>" placeholder="Nome" required />
+    </p>
+    <p>
+      <label for="cpf">CPF:</label>
+      <input name="cpf" id="cpf" value="<%= c.cpf || '' %>" placeholder="CPF" required />
+    </p>
+    <p>
+      <label for="dataNascimento">Data de Nascimento:</label>
+      <input type="date" name="dataNascimento" id="dataNascimento" value="<%= cliente.dataNascimento || '' %>" required />
+    </p>
+    <p>
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" value="<%= cliente.email || '' %>" placeholder="Email" required />
+    </p>
+    <p>
+      <label for="endereco">Endereço:</label>
+      <input name="endereco" id="endereco" value="<%= cliente.endereco || '' %>" placeholder="Endereço" required />
+    </p>
+    <p>
+      <label for="telefone">Telefone:</label>
+      <input name="telefone" id="telefone" value="<%= cliente.telefone || '' %>" placeholder="Telefone" required />
+    </p>
+
+    <button type="submit">Salvar</button>
+  </form>
+
+</body>
+</html>
