@@ -5,6 +5,9 @@ USE cliente_db;
 CREATE TABLE clientes (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) UNIQUE NOT NULL,
-  endereco VARCHAR(255),
-  telefone VARCHAR(20)
+  endereco VARCHAR(255) NOT NULL,
+  telefone VARCHAR(20) NOT NULL,
+  cpf VARCHAR(50) NOT NULL,
+  data_nascimento DATE NOT NULL,
+  email VARCHAR(50) NOT NULL
 );
