@@ -1,0 +1,24 @@
+<link rel="stylesheet" href='/styles/index.css'> 
+<h1>Clientes</h1>
+<a href="/novo">Novo Cliente</a> 
+
+<div class="search-wrapper">
+  <form class="search-form" action="/" method="get">
+    <input
+      type="text"
+      name="busca"
+      placeholder="Buscar por nome ou telefone"
+      value="<%= termoBusca %>"
+    >
+    <button type="submit">Buscar</button>
+  </form>
+</div>
+
+  <% clientes.forEach(c => { %>
+    <li>
+     <strong><%= c.nome %></strong> |<strong> Telefone:  <%= c.telefone %> </strong> | <a href="/detalhes/<%= c.id %>">Detalhes</a> |
+      <a href="/editar/<%= c.id %>">Editar</a> |
+      <a href="/excluir/<%= c.id %>">Excluir</a>
+    </li>
+    <% }) %>
+</ul>

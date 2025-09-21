@@ -1,0 +1,25 @@
+POST http://localhost:3000/editar/2
+Content-type: application/json
+
+{
+  "nome": "Joãoa",
+  "endereco": "joao verde 3",
+  "telefone": "5988414",
+  "cpf": "12345612",
+  "data_nascimento": "1990-10-10",
+  "email": "joao@gmail.com"
+}
+###
+GET http://localhost:3000/register?search=
+###
+PUT http://localhost:3000/register/insira_id_aqui
+Content-type: application/json
+
+{
+        "name": "joao",
+        "lastname": "jose",
+        "email": "a@a.com",
+        "password": "123"
+}
+###
+DELETE http:localhost:3000/register/insira_id_aqui

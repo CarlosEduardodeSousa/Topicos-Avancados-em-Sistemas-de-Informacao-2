@@ -1,0 +1,11 @@
+<link rel="stylesheet" href='/styles/form.css'> 
+<h1><%= cliente.id ? 'Editar' : 'Novo' %> Cliente</h1>
+<form method="POST" action="<%= cliente.id ? '/editar/' + cliente.id : '/novo' %>">
+  <p>Nome: <input name="nome" value="<%= cliente.nome || '' %>" placeholder="Nome" required /></p>
+  <p>Endereço: <input name="endereco" value="<%= cliente.endereco || '' %>" placeholder="Endereço" /></p>
+  <p>Telefone: <input name="telefone" value="<%= cliente.telefone || '' %>" placeholder="Telefone" /></p>
+  <p>CPF: <input name="cpf" value="<%= cliente.cpf || '' %>" placeholder="CPF" required /></p>
+  <p>Data de Nascimento: <input type="date" name="data_nascimento" value="<%= cliente.data_nascimento || '' %>" placeholder="Data de Nascimento" required /></p>
+  <p>Email: <input name="email" value="<%= cliente.email || '' %>" placeholder="Email" required /></p> 
+  <button type="submit">Salvar</button>
+</form>
